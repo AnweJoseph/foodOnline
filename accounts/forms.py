@@ -2,7 +2,7 @@ from typing import Any
 from django import forms
 from .models import User
 
-class Userform(forms.ModelForm):
+class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
@@ -18,7 +18,7 @@ class Userform(forms.ModelForm):
             ]
         
     def clean(self):
-        cleaned_data = super(Userform, self).clean()
+        cleaned_data = super(UserForm, self).clean()
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
 
