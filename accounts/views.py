@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 
+from vendor.models import Vendor
+
 from .utils import detectUser, send_verification_email
 from vendor.forms import VendorForm
 from .forms import UserForm
@@ -180,7 +182,7 @@ def custDashboard(request):
 
 
 # This line uses a decorator @login_required to ensure a user
-# is logged in before accessing the utilities of this function
+# is logged in  before accessing the utilities of this function
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def vendorDashboard(request):
