@@ -102,7 +102,7 @@ def registerVendor(request):
             email_template = 'accounts/emails/account_verification_email.html'
             send_verification_email(request, user, mail_subject, email_template)
 
-            messages.success(request,'Your account has being registered successfully! Please wait for the approval.')
+            messages.success(request,'Your account has being registered successfully! Please proceed to activate your account using the link sent to your email.')
             return redirect('registerVendor')
         else:
             messages.warning(request, 'Registration failed! Please input correct fields.')
