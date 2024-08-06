@@ -23,3 +23,11 @@
 .main-search.fancy .field-holder input[type="text"]{
     color: black !important;
 }
+
+table > tbody > tr > td{
+    border: none !important;
+}
+
+.btn-success.add_hour{
+    padding: 7px 15px 7px 15px;
+}
