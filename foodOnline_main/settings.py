@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'marketplace',
     'django.contrib.gis',
     'customers',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'marketplace.context_processors.get_cart_counter',
                 'marketplace.context_processors.get_cart_amounts',
                 'accounts.context_processors.get_user_profile',
+                'accounts.context_processors.get_paypal_client_id',
             ],
         },
     },
@@ -168,7 +170,7 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'foodOnline Marketplace <host.foodsonline@gmail.com>'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-GOOGLE_API_KEY = 'AIzaSyBFWqDHcj_YMpSjZ5Zzv3M6t8hvvoyYDMs'
+GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 
 #CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/']
 
@@ -176,3 +178,8 @@ GOOGLE_API_KEY = 'AIzaSyBFWqDHcj_YMpSjZ5Zzv3M6t8hvvoyYDMs'
 os.environ['PATH'] = os.path.join(BASE_DIR, 'env\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
 os.environ['PROJ_LIB'] = os.path.join(BASE_DIR, 'env\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
 GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, 'env\Lib\site-packages\osgeo\gdal.dll')
+
+
+PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
